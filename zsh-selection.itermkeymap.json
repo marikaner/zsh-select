@@ -1,0 +1,249 @@
+{
+  "Key Mappings": {
+    "0x33-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "3",
+      "Label": ""
+    },
+    "0xf712-0x40000-0x0": { "Action": 10, "Text": "[28;5~" },
+    "0x2f-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "/",
+      "Label": ""
+    },
+    "0x3-0x200000-0x0": {
+      "Version": 0,
+      "Action": 11,
+      "Text": "0xd",
+      "Label": ""
+    },
+    "0x38-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "8",
+      "Label": ""
+    },
+    "0xf728-0x80000-0x0": {
+      "Version": 0,
+      "Action": 10,
+      "Text": "d",
+      "Label": ""
+    },
+    "0xf70e-0x20000-0x0": { "Action": 10, "Text": "[23;2~" },
+    "0xf701-0x220000-0x0": { "Action": 10, "Text": "[1;2B" },
+    "0x32-0x40000-0x0": { "Action": 11, "Text": "0x00" },
+    "0xf700-0x240000-0x0": { "Action": 10, "Text": "[1;5A" },
+    "0xf703-0x220000-0x0": { "Action": 10, "Text": "[1;2C" },
+    "0xf70b-0x20000-0x0": { "Action": 10, "Text": "[19;2~" },
+    "0xf702-0x240000-0x0": { "Action": 10, "Text": "[1;5D" },
+    "0xf70d-0x40000-0x0": { "Action": 10, "Text": "[21;5~" },
+    "0x7a-0x100000-0x6": {
+      "Version": 1,
+      "Action": 10,
+      "Text": "[122;9u",
+      "Label": ""
+    },
+    "0xf701-0x260000-0x0": { "Action": 10, "Text": "[1;6B" },
+    "0xf72b-0x40000-0x0": { "Action": 10, "Text": "[1;5F" },
+    "0xf70a-0x40000-0x0": { "Action": 10, "Text": "[18;5~" },
+    "0x31-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "1",
+      "Label": ""
+    },
+    "0xf703-0x260000-0x0": { "Action": 10, "Text": "[1;6C" },
+    "0x2d-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "-",
+      "Label": ""
+    },
+    "0xf709-0x20000-0x0": { "Action": 10, "Text": "[17;2~" },
+    "0xf702-0x280000-0x0": {
+      "Version": 0,
+      "Action": 10,
+      "Text": "b",
+      "Label": ""
+    },
+    "0x36-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "6",
+      "Label": ""
+    },
+    "0xf706-0x20000-0x0": { "Action": 10, "Text": "[1;2R" },
+    "0x36-0x40000-0x0": { "Action": 11, "Text": "0x1e" },
+    "0xf729-0x40000-0x0": { "Action": 10, "Text": "[1;5H" },
+    "0x2d-0x40000-0x0": { "Action": 11, "Text": "0x1f" },
+    "0xf708-0x40000-0x0": { "Action": 10, "Text": "[15;5~" },
+    "0xf702-0x300000-0x0": {
+      "Version": 0,
+      "Action": 11,
+      "Text": "0x1",
+      "Label": ""
+    },
+    "0x7f-0x80000-0x0": {
+      "Version": 0,
+      "Action": 11,
+      "Text": "0x1b 0x7f",
+      "Label": ""
+    },
+    "0xf705-0x40000-0x0": { "Action": 10, "Text": "[1;5Q" },
+    "0xf711-0x40000-0x0": { "Action": 10, "Text": "[26;5~" },
+    "0x61-0x100000-0x0": {
+      "Version": 1,
+      "Action": 10,
+      "Text": "[97;9u",
+      "Label": ""
+    },
+    "0x33-0x40000-0x0": { "Action": 11, "Text": "0x1b" },
+    "0x2b-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "+",
+      "Label": ""
+    },
+    "0xf70d-0x20000-0x0": { "Action": 10, "Text": "[21;2~" },
+    "0x34-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "4",
+      "Label": ""
+    },
+    "0xf72b-0x20000-0x0": { "Action": 10, "Text": "[1;2F" },
+    "0x39-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "9",
+      "Label": ""
+    },
+    "0xf70f-0x40000-0x0": { "Action": 10, "Text": "[24;5~" },
+    "0x5a-0xa0000-0x6": {
+      "Version": 1,
+      "Action": 10,
+      "Text": "[122;10u",
+      "Label": ""
+    },
+    "0xf70a-0x20000-0x0": { "Action": 10, "Text": "[18;2~" },
+    "0xf70c-0x40000-0x0": { "Action": 10, "Text": "[20;5~" },
+    "0x37-0x40000-0x0": { "Action": 11, "Text": "0x1f" },
+    "0x78-0x100000-0x7": {
+      "Version": 1,
+      "Action": 10,
+      "Text": "[120;9u",
+      "Label": ""
+    },
+    "0xf708-0x20000-0x0": { "Action": 10, "Text": "[15;2~" },
+    "0xf729-0x20000-0x0": { "Action": 10, "Text": "[1;2H" },
+    "0xf700-0x220000-0x0": { "Action": 10, "Text": "[1;2A" },
+    "0xf702-0x2a0000-0x7b": {
+      "Version": 1,
+      "Action": 10,
+      "Text": "[1;4D",
+      "Label": ""
+    },
+    "0xf705-0x20000-0x0": { "Action": 10, "Text": "[1;2Q" },
+    "0xf702-0x220000-0x0": { "Action": 10, "Text": "[1;2D" },
+    "0x32-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "2",
+      "Label": ""
+    },
+    "0x2e-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": ".",
+      "Label": ""
+    },
+    "0xf701-0x240000-0x0": { "Action": 10, "Text": "[1;5B" },
+    "0xf700-0x260000-0x0": { "Action": 10, "Text": "[1;6A" },
+    "0xf707-0x40000-0x0": { "Action": 10, "Text": "[1;5S" },
+    "0xf703-0x240000-0x0": { "Action": 10, "Text": "[1;5C" },
+    "0x37-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "7",
+      "Label": ""
+    },
+    "0x34-0x40000-0x0": { "Action": 11, "Text": "0x1c" },
+    "0xf702-0x260000-0x0": { "Action": 10, "Text": "[1;6D" },
+    "0xf704-0x40000-0x0": { "Action": 10, "Text": "[1;5P" },
+    "0xf710-0x40000-0x0": { "Action": 10, "Text": "[25;5~" },
+    "0xf702-0x320000-0x7b": {
+      "Version": 1,
+      "Action": 10,
+      "Text": "[1;10D",
+      "Label": ""
+    },
+    "0xf703-0x280000-0x0": {
+      "Version": 0,
+      "Action": 10,
+      "Text": "f",
+      "Label": ""
+    },
+    "0xf70f-0x20000-0x0": { "Action": 10, "Text": "[24;2~" },
+    "0x63-0x100000-0x8": {
+      "Version": 1,
+      "Action": 10,
+      "Text": "[99;9u",
+      "Label": ""
+    },
+    "0x7f-0x100000-0x0": {
+      "Version": 0,
+      "Action": 11,
+      "Text": "0x15",
+      "Label": ""
+    },
+    "0xf70c-0x20000-0x0": { "Action": 10, "Text": "[20;2~" },
+    "0xf703-0x300000-0x0": {
+      "Version": 0,
+      "Action": 11,
+      "Text": "0x5",
+      "Label": ""
+    },
+    "0x38-0x40000-0x0": { "Action": 11, "Text": "0x7f" },
+    "0x30-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "0",
+      "Label": ""
+    },
+    "0xf70e-0x40000-0x0": { "Action": 10, "Text": "[23;5~" },
+    "0x35-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "5",
+      "Label": ""
+    },
+    "0xf70b-0x40000-0x0": { "Action": 10, "Text": "[19;5~" },
+    "0xf739-0x0-0x0": { "Version": 0, "Action": 13, "Text": "", "Label": "" },
+    "0xf707-0x20000-0x0": { "Action": 10, "Text": "[1;2S" },
+    "0xf704-0x20000-0x0": { "Action": 10, "Text": "[1;2P" },
+    "0x35-0x40000-0x0": { "Action": 11, "Text": "0x1d" },
+    "0xf709-0x40000-0x0": { "Action": 10, "Text": "[17;5~" },
+    "0xf728-0x0-0x0": {
+      "Version": 0,
+      "Action": 11,
+      "Text": "0x4",
+      "Label": ""
+    },
+    "0xf706-0x40000-0x0": { "Action": 10, "Text": "[1;5R" },
+    "0xf703-0x320000-0x7c": {
+      "Version": 1,
+      "Action": 10,
+      "Text": "[1;10C",
+      "Label": ""
+    },
+    "0x2a-0x200000-0x0": {
+      "Version": 0,
+      "Action": 12,
+      "Text": "*",
+      "Label": ""
+    }
+  },
+  "Touch Bar Items": []
+}
