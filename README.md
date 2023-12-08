@@ -1,6 +1,6 @@
 # zsh-select
 
-inspired by: https://stackoverflow.com/questions/5407916/zsh-zle-shift-selection/68987551#68987551
+_inspired by: https://stackoverflow.com/questions/5407916/zsh-zle-shift-selection/68987551#68987551_
 
 This script enables copy pasting, selection etc. of text as you know it from editors.
 The script executes 3 steps:
