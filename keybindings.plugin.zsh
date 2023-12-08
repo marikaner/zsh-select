@@ -154,7 +154,7 @@ function widget::util-insertchar() {
 
 # BIND KEYS
 #
-# This binds the keys (defined above) to widgets.
+# This binds the keys (defined above) to widgets with `bindkey KEY WIDGET`
 
 #                       |  key                            | widget
 # --------------------- | ------------------------------- | -------------
