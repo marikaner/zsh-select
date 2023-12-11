@@ -61,8 +61,10 @@ export KEY_SHIFT_CMD_Z='^[[122;10u'
 export KEY_CMD_C='^[[99;9u'
 export KEY_CMD_X='^[[120;9u' 
 export KEY_CMD_A='^[[97;9u'
-export KEY_SHIFT_OPT_LEFT=$'^[[1;4D' # this was overwritten, default is different in zsh
-export KEY_SHIFT_OPT_RIGHT=$'^[[1;4C'
+export KEY_SHIFT_OPT_LEFT=$'^[[1;4D' # this was overwritten, default was different
+export KEY_SHIFT_OPT_RIGHT=$'^[[1;4C' # this was overwritten, default was different
+export KEY_BACKSPACE=$'^H'
+
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -154,13 +156,14 @@ function widget::util-insertchar() {
 
 # BIND KEYS
 #
-# This binds the keys (defined above) to widgets with `bindkey KEY WIDGET`
+# This binds the keys (defined above) to widgets.
 
 #                       |  key                            | widget
 # --------------------- | ------------------------------- | -------------
 
 bindkey                   $KEY_CMD_Z                        undo
 bindkey                   $KEY_SHIFT_CMD_Z                  redo
+bindkey                   $KEY_BACKSPACE                    kill-region
 bindkey                   $KEY_CMD_C                        widget::copy-selection
 bindkey                   $KEY_CMD_X                        widget::cut-selection
 bindkey                   $KEY_CMD_A                        widget::select-all
