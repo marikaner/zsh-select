@@ -14,8 +14,6 @@ To use it:
      If not, use import the `zsh-selection.itermkeymap.json` in iTerm2.
      iTerm2 > Settings > Profiles > Keys > Key Mappings > Presets > Import
 
-# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-
 ## 1. SET VARIABLES
 
 These variables represent the terminal signals (keys).
