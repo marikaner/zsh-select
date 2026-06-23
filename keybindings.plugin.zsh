@@ -11,7 +11,7 @@
 #  1. Add this file to `$ZSH_CUSTOM/plugins/keybindings`.
 #  2. Make sure all the keys are defined as described below.
 #     If not, use import the `zsh-selection.itermkeymap.json` in iTerm2.
-#     iTerm2 > Settings > Profiles > Keys > Key Mappings > Presets > Import
+#     iTerm2 > Settings > Profiles > Keys > Key Bindings > Presets > Import
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -25,7 +25,7 @@
 # If you are using iTerm2, you can set signals manually with:
 #  - go to: iTerm2 > Settings > Profiles > Keys > Key Mappings
 #  - record the keyboard shortcut
-#  - select action "Send escape seuqence"
+#  - select action "Send escape sequence"
 #  - enter the escape sequence without leading `^[`
 #
 # Terminfo is a database that describes terminals.
@@ -34,37 +34,35 @@
 #  You can print the existing cap names with `$ infocmp -1`.
 
 # default in iTerm2
-export KEY_LEFT=${terminfo[kcub1]:-$'^[[D'}
-export KEY_RIGHT=${terminfo[kcuf1]:-$'^[[C'}
-export KEY_SHIFT_UP=${terminfo[kri]:-$'^[[1;2A'}
-export KEY_SHIFT_DOWN=${terminfo[kind]:-$'^[[1;2B'}
-export KEY_SHIFT_RIGHT=${terminfo[kRIT]:-$'^[[1;2C'}
-export KEY_SHIFT_LEFT=${terminfo[kLFT]:-$'^[[1;2D'}
-export KEY_OPT_LEFT=$'^[b'
-export KEY_OPT_RIGHT=$'^[f'
-export KEY_CMD_LEFT=$'^[[1;9D'
-export KEY_CMD_RIGHT=$'^[[1;9C'
-export KEY_SHIFT_CMD_LEFT=$'^[[1;10D'
-export KEY_SHIFT_CMD_RIGHT=$'^[[1;10C'
-export KEY_SHIFT_CTRL_LEFT=$'^[[1;6D'
-export KEY_SHIFT_CTRL_RIGHT=$'^[[1;6C'
-export KEY_CTRL_D=$'\x04' # ^D
-export KEY_CTRL_L=$'\x0c' # ^L
+typeset -r KEY_LEFT=${terminfo[kcub1]:-$'^[[D'}
+typeset -r KEY_RIGHT=${terminfo[kcuf1]:-$'^[[C'}
+typeset -r KEY_SHIFT_UP=${terminfo[kri]:-$'^[[1;2A'}
+typeset -r KEY_SHIFT_DOWN=${terminfo[kind]:-$'^[[1;2B'}
+typeset -r KEY_SHIFT_RIGHT=${terminfo[kRIT]:-$'^[[1;2C'}
+typeset -r KEY_SHIFT_LEFT=${terminfo[kLFT]:-$'^[[1;2D'}
+typeset -r KEY_OPT_LEFT=$'^[b'
+typeset -r KEY_OPT_RIGHT=$'^[f'
+typeset -r KEY_CMD_LEFT=$'^[[1;9D'
+typeset -r KEY_CMD_RIGHT=$'^[[1;9C'
+typeset -r KEY_SHIFT_CMD_LEFT=$'^[[1;10D'
+typeset -r KEY_SHIFT_CMD_RIGHT=$'^[[1;10C'
+typeset -r KEY_SHIFT_CTRL_LEFT=$'^[[1;6D'
+typeset -r KEY_SHIFT_CTRL_RIGHT=$'^[[1;6C'
+typeset -r KEY_CTRL_D=$'\x04' # ^D
+typeset -r KEY_CTRL_L=$'\x0c' # ^L
 
 # additional default values that differ in IntelliJ shell
-export KEY_SHIFT_OPT_LEFT_INTELLIJ=$'^[^[[D'
-export KEY_SHIFT_OPT_RIGHT_INTELLIJ=$'^[^[[C'
+typeset -r KEY_SHIFT_OPT_LEFT_INTELLIJ=$'^[^[[D'
+typeset -r KEY_SHIFT_OPT_RIGHT_INTELLIJ=$'^[^[[C'
 
 # manually set in iTerm2 (omit leading ^[)
-export KEY_CMD_Z='^[[122;9u'
-export KEY_SHIFT_CMD_Z='^[[122;10u'
-export KEY_CMD_C='^[[99;9u'
-export KEY_CMD_X='^[[120;9u' 
-export KEY_CMD_A='^[[97;9u'
-export KEY_SHIFT_OPT_LEFT=$'^[[1;4D' # this was overwritten, default was different
-export KEY_SHIFT_OPT_RIGHT=$'^[[1;4C' # this was overwritten, default was different
-export KEY_BACKSPACE=$'^H'
-
+typeset -r KEY_CMD_Z='^[[122;9u'
+typeset -r KEY_SHIFT_CMD_Z='^[[122;10u'
+typeset -r KEY_CMD_C='^[[99;9u'
+typeset -r KEY_CMD_X='^[[120;9u'
+typeset -r KEY_CMD_A='^[[97;9u'
+typeset -r KEY_SHIFT_OPT_LEFT=$'^[[1;4D' # this was overwritten, default was different
+typeset -r KEY_SHIFT_OPT_RIGHT=$'^[[1;4C' # this was overwritten, default was different
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -89,8 +87,8 @@ function widget::copy-selection {
 
 # cut selected terminal text to clipboard
 zle -N widget::cut-selection
-function widget::cut-selection() {
-    if ((REGION_ACTIVE)) then
+function widget::cut-selection {
+    if ((REGION_ACTIVE)); then
         zle kill-region
         printf "%s" $CUTBUFFER | pbcopy
     fi
@@ -98,46 +96,45 @@ function widget::cut-selection() {
 
 # paste clipboard contents
 zle -N widget::paste
-function widget::paste() {
+function widget::paste {
     ((REGION_ACTIVE)) && zle kill-region
-    RBUFFER="$(pbpaste)${RBUFFER}"
-    CURSOR=$(( CURSOR + $(echo -n "$(pbpaste)" | wc -m | bc) ))
+    local clip="$(pbpaste)"
+    RBUFFER="${clip}${RBUFFER}"
+    CURSOR=$(( CURSOR + ${#clip} ))
 }
 
 # select entire prompt
 zle -N widget::select-all
-function widget::select-all() {
-    local buflen=$(echo -n "$BUFFER" | wc -m | bc)
-    CURSOR=$buflen   # if this is messing up try: CURSOR=9999999
-    zle set-mark-command
-    while [[ $CURSOR > 0 ]]; do
-        zle beginning-of-line
-    done
+# CURSOR at start so that kill-region in widget::paste deletes correctly after Cmd+A
+function widget::select-all {
+    MARK=${#BUFFER}
+    CURSOR=0
+    REGION_ACTIVE=1
 }
 
 # scrolls the screen up, in effect clearing it
 zle -N widget::scroll-and-clear-screen
-function widget::scroll-and-clear-screen() {
+function widget::scroll-and-clear-screen {
     printf "\n%.0s" {1..$LINES}
     zle clear-screen
 }
 
-function widget::util-select() {
+function widget::util-select {
     ((REGION_ACTIVE)) || zle set-mark-command
     local widget_name=$1
     shift
     zle $widget_name -- $@
 }
 
-function widget::util-unselect() {
+function widget::util-unselect {
     REGION_ACTIVE=0
     local widget_name=$1
     shift
     zle $widget_name -- $@
 }
 
-function widget::util-delselect() {
-    if ((REGION_ACTIVE)) then
+function widget::util-delselect {
+    if ((REGION_ACTIVE)); then
         zle kill-region
     else
         local widget_name=$1
@@ -146,7 +143,7 @@ function widget::util-delselect() {
     fi
 }
 
-function widget::util-insertchar() {
+function widget::util-insertchar {
     ((REGION_ACTIVE)) && zle kill-region
     RBUFFER="${1}${RBUFFER}"
     zle forward-char
@@ -163,13 +160,15 @@ function widget::util-insertchar() {
 
 bindkey                   $KEY_CMD_Z                        undo
 bindkey                   $KEY_SHIFT_CMD_Z                  redo
-bindkey                   $KEY_BACKSPACE                    kill-region
 bindkey                   $KEY_CMD_C                        widget::copy-selection
 bindkey                   $KEY_CMD_X                        widget::cut-selection
 bindkey                   $KEY_CMD_A                        widget::select-all
 bindkey                   $KEY_CTRL_L                       widget::scroll-and-clear-screen
 
 for keyname        kcap   seq                   mode        widget (
+
+    del            kdch1  ${terminfo[kdch1]:-$'\e[3~'}  delselect    delete-char
+    bspace         kbs    ${terminfo[kbs]:-$'\x7f'}     delselect    backward-delete-char
 
     left           kcub1  $KEY_LEFT             unselect    backward-char
     right          kcuf1  $KEY_RIGHT            unselect    forward-char
@@ -193,7 +192,7 @@ for keyname        kcap   seq                   mode        widget (
     shift-ctrl-left   x   $KEY_SHIFT_CTRL_LEFT  select      beginning-of-line
   
 ) {
-    eval "function widget::key-$keyname() {
+    eval "function widget::key-$keyname {
         widget::util-$mode $widget \$@
     }"
     zle -N widget::key-$keyname
@@ -201,7 +200,7 @@ for keyname        kcap   seq                   mode        widget (
 }
 
 # suggested by "e.nikolov", fixes autosuggest completion being 
-# overriden by keybindings: to have [zsh] autosuggest [plugin
+# overridden by keybindings: to have [zsh] autosuggest [plugin
 # feature] complete visible suggestions, you can assign an array
 # of shell functions to the `ZSH_AUTOSUGGEST_ACCEPT_WIDGETS` 
 # variable. when these functions are triggered, they will also 
@@ -211,4 +210,5 @@ export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(
     widget::key-shift-right
     widget::key-cmd-right
     widget::key-shift-cmd-right
+    widget::key-shift-ctrl-right
 )
